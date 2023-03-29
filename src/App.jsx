@@ -13,7 +13,7 @@ function App() {
   ];
   return (
     <>
-      <PokemonCard Pokemon={pokemonList[0]} />
+      <PokemonCard pokemon={pokemonList[0]} />
     </>
   );
 }
