@@ -1,5 +1,6 @@
 import { useState } from "react";
-import PokemonCard from "./components/PokemonCard";
+import PokemonCard from "./components/PokemonCard.jsx";
+import NavBar from "./components/NavBar.jsx";
 
 function App() {
   const pokemonList = [
@@ -29,26 +30,13 @@ function App() {
   ];
 
   const [count, setCount] = useState(0);
-  const handleClickNext = () => {
-    setCount(count + 1);
-  };
-  const handleClickPrevious = () => {
-    setCount(count - 1);
-  };
-  count === -1
-    ? setCount(pokemonList.length - 1)
-    : count === pokemonList.length
-    ? setCount(0)
-    : count;
-  /* J'ai créé une boucle plutôt que de faire disparaitre les boutons*/
 
   return (
     <>
-      <div>
+      <section>
         <PokemonCard pokemon={pokemonList[count]} />
-        <button onClick={handleClickPrevious}>Previous</button>
-        <button onClick={handleClickNext}>Next</button>
-      </div>
+        <NavBar count={count} setCount={setCount} pokemonList={pokemonList} />
+      </section>
     </>
   );
 }
